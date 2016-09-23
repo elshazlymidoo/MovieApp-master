@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/details_container">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:fontFamily="serif-monospace"
+    android:textSize="27dp"
+    android:textStyle="bold"
+    android:gravity="center|left"
+    android:paddingLeft="15dp"
+    android:background="@color/green"
+    android:id="@+id/movie_title"/>
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="370dp"
+        android:paddingBottom="25dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+
+        android:layout_below="@+id/movie_title"
+
+        android:id="@+id/movie_poster"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:id="@+id/fav_button"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@+id/movie_poster"
+        android:layout_below="@+id/voting_average"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:paddingTop="105dp"
+        android:paddingBottom="20dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@+id/movie_poster"
+        android:layout_below="@+id/movie_title"
+        android:textSize="18dp"
+        android:textColor="@color/darkerGray"
+        android:id="@+id/release_date"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:paddingBottom="25dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/movie_poster"
+        android:id="@+id/overview"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:paddingBottom="20dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@+id/movie_poster"
+        android:layout_below="@+id/release_date"
+        android:textSize="18dp"
+        android:textColor="@color/darkerGray"
+        android:id="@+id/voting_average"/>
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_below="@+id/overview"
+        android:id="@+id/tra"
+        android:text="Trailers:"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:textSize="20dp"
+            android:paddingBottom="25dp"
+            android:textColor="@android:color/black"
+            />
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_below="@+id/tra"
+
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="635dp"
+        card_view:cardCornerRadius="10dp"
+
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="25dp">
+        <ListView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
+            android:id="@+id/trailer_list"
+
+
+
+
+            android:dividerHeight="1dp"
+            android:footerDividersEnabled="true"
+
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
+            >
+         </ListView>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card_view"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:id="@+id/reviews_text"
+        android:text="Reviews:"
+        android:textSize="20dp"
+        android:paddingBottom="25dp"
+        android:textColor="@android:color/black"
+        />
+
+    <ListView
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:id="@+id/reviews_list"
+        android:layout_below="@+id/reviews_text"
+
+        android:dividerHeight="1dp"
+        android:footerDividersEnabled="true"
+
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        >
+    </ListView>
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
+</ScrollView>
