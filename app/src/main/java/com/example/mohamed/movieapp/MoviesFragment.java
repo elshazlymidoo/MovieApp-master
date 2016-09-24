@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -91,7 +90,6 @@ public class MoviesFragment extends Fragment {
             mResultsBean = db.getAllMovie();
             for (int i = 0; i < mResultsBean.size(); i++) {
                 mImageUrlList.add(mResultsBean.get(i).getPoster_path());
-                Log.i("fav", mResultsBean.get(3).toString());
 
             }
             moviesAdapter.notifyDataSetChanged();
