@@ -1,14 +1,14 @@
 package com.example.mohamed.movieapp;
 
+
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -30,7 +30,7 @@ import java.util.List;
  */
 public class MoviesFragment extends Fragment {
 
-    private List<MoviesData.ResultsBean> moviesList;
+    ArrayList<MoviesData.ResultsBean> moviesList;
     private ImagesAdapter moviesAdapter;
     private ArrayList<String> mImageUrlList;
     Listener mListener;
@@ -42,6 +42,7 @@ public class MoviesFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_movies, container, false);
 
         mImageUrlList = new ArrayList<String>();
+
         moviesAdapter = new ImagesAdapter(getActivity(), mImageUrlList);
         GridView list = (GridView) rootView.findViewById(R.id.gridview_movies);
         list.setAdapter(moviesAdapter);
@@ -49,7 +50,6 @@ public class MoviesFragment extends Fragment {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
                 mListener.setSelectedMovie(moviesList.get(position));
             }
         });
@@ -61,28 +61,19 @@ public class MoviesFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-        new FetchMoviesTask().execute("popular");
+
+
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.sort_menu, menu);
-    }
+    public void updateMoviesDisplay() {
+        FetchMoviesTask fetchMoviesTask = new FetchMoviesTask();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String type = prefs.getString(getString(R.string.pref_display_type_key),
+                getString(R.string.pref_display_categeory_defualt));
 
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-
-        int id = item.getItemId();
-        FetchMoviesTask task = new FetchMoviesTask();
-        if (id == R.id.popular_sort) {
-            task.execute("popular");
-            return true;
-        } else if (id == R.id.top_rated_sort) {
-            task.execute("top_rated");
-            return true;
-        } else if (id == R.id.favourite_sort) {
+        if (type.equals("favourite")) {
             mImageUrlList.clear();
             MovieDb db = new MovieDb(getActivity());
             moviesList = db.getAllMovie();
@@ -92,12 +83,17 @@ public class MoviesFragment extends Fragment {
                 mImageUrlList.add(mResultsBean.get(i).getPoster_path());
 
             }
-            moviesAdapter.notifyDataSetChanged();
-        }
-        moviesAdapter.notifyDataSetChanged();
 
-        return true;
+            moviesAdapter.notifyDataSetChanged();
+        } else if (type.equals("popular")) {
+            fetchMoviesTask.execute("popular");
+        } else if (type.equals("top_rated")) {
+            fetchMoviesTask.execute("top_rated");
+        }
+
+
     }
+
 
     public void setListener(Listener listener) {
         this.mListener = listener;
@@ -135,14 +131,22 @@ public class MoviesFragment extends Fragment {
 
             mImageUrlList.clear();
             for (ResultsBean bean : movie.getResults()) {
+
                 mImageUrlList.add(BuildImageUrl(bean.getPoster_path()));
 
             }
 
-
             moviesAdapter.notifyDataSetChanged();
 
+
         }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        updateMoviesDisplay();
     }
 
 
