@@ -1,6 +1,7 @@
 package com.example.mohamed.movieapp.Data;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,13 +27,13 @@ public class MoviesData implements Serializable {
      * vote_average : 5.99
      */
 
-    private List<ResultsBean> results;
+    private ArrayList<ResultsBean> results;
 
-    public List<ResultsBean> getResults() {
+    public ArrayList<ResultsBean> getResults() {
         return results;
     }
 
-    public void setResults(List<ResultsBean> results) {
+    public void setResults(ArrayList<ResultsBean> results) {
         this.results = results;
     }
 

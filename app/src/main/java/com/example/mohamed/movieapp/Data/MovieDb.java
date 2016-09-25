@@ -76,8 +76,8 @@ public class MovieDb extends SQLiteOpenHelper {
 
     }
 
-    public List<MoviesData.ResultsBean> getAllMovie() {
-        List<MoviesData.ResultsBean> movieModels = new ArrayList<MoviesData.ResultsBean>();
+    public ArrayList<MoviesData.ResultsBean> getAllMovie() {
+        ArrayList<MoviesData.ResultsBean> movieModels = new ArrayList<MoviesData.ResultsBean>();
 
         String selectQuery = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = getReadableDatabase();

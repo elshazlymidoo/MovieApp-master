@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MovieApp</string>
+    <string name="detail_activity">MovieDetails</string>
+    <string name="trailers">Trailers:</string>
+    <string name="reviews">Reviews:</string>
+    <string name="popular_sort">Most Popular</string>
+    <string name="top_rated_sort">Top Rated</string>
+    <string name="favourites_sort">Favourites</string>
+    <string name="action_settings">Settings</string>
+
+
 </resources>

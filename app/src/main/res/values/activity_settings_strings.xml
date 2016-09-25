@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_settings">Settings</string>
+
+
+    <string name="pref_header_general">General</string>
+
+
+    <string name="pref_display_type_key">Choose display way</string>
+    <string name="pref_display_type_label">Choose display way</string>
+    <string name="pref_display_categeory_defualt">popular</string>
+    <string-array name="pref_display_type_list">
+        <item>Popular</item>
+        <item>top_rated</item>
+        <item>favourite</item>
+    </string-array>
+    <string-array name="pref_display_type_values">
+        <item>popular</item>
+        <item>top_rated</item>
+        <item>favourite</item>
+    </string-array>
+
+</resources>
