@@ -1,10 +1,15 @@
 package com.example.mohamed.movieapp;
 
 
+<<<<<<< HEAD
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
+=======
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+>>>>>>> 0fa2b66cf92dad886a8afbf48dfca3619cdcf628
 
 
 /**

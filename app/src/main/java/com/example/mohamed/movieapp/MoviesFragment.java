@@ -8,7 +8,10 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+<<<<<<< HEAD
 import android.util.Log;
+=======
+>>>>>>> 0fa2b66cf92dad886a8afbf48dfca3619cdcf628
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,11 +104,15 @@ public class MoviesFragment extends Fragment {
     }
 
     public static String BuildImageUrl(String imagePath) {
+<<<<<<< HEAD
 
        // Uri uri = Uri.parse("http://image.tmdb.org/t/p/").buildUpon().appendEncodedPath("w342").appendEncodedPath(imagePath).build();
         String test="http://image.tmdb.org/t/p/w342/"+imagePath;
         Uri uri=Uri.parse(test);
         Log.i("images",uri.toString());
+=======
+        Uri uri = Uri.parse("http://image.tmdb.org/t/p/").buildUpon().appendEncodedPath("w342").appendEncodedPath(imagePath).build();
+>>>>>>> 0fa2b66cf92dad886a8afbf48dfca3619cdcf628
         return uri.toString();
     }
 
@@ -135,11 +142,17 @@ public class MoviesFragment extends Fragment {
             moviesList = movie.getResults();
 
             mImageUrlList.clear();
+<<<<<<< HEAD
 
             for (ResultsBean bean : movie.getResults()) {
 
                 mImageUrlList.add(bean.getPoster_path());
 
+=======
+            for (ResultsBean bean : movie.getResults()) {
+
+                mImageUrlList.add(BuildImageUrl(bean.getPoster_path()));
+>>>>>>> 0fa2b66cf92dad886a8afbf48dfca3619cdcf628
 
             }
 

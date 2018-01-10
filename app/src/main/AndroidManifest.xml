@@ -10,8 +10,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/AppTheme"
         >
+=======
+        android:theme="@style/AppTheme">
+>>>>>>> 0fa2b66cf92dad886a8afbf48dfca3619cdcf628
         <activity android:name=".MainActivity"
             android:configChanges="orientation|screenSize">
             <intent-filter>
