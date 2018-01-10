@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -100,7 +101,11 @@ public class MoviesFragment extends Fragment {
     }
 
     public static String BuildImageUrl(String imagePath) {
-        Uri uri = Uri.parse("http://image.tmdb.org/t/p/").buildUpon().appendEncodedPath("w342").appendEncodedPath(imagePath).build();
+
+       // Uri uri = Uri.parse("http://image.tmdb.org/t/p/").buildUpon().appendEncodedPath("w342").appendEncodedPath(imagePath).build();
+        String test="http://image.tmdb.org/t/p/w342/"+imagePath;
+        Uri uri=Uri.parse(test);
+        Log.i("images",uri.toString());
         return uri.toString();
     }
 
@@ -130,9 +135,11 @@ public class MoviesFragment extends Fragment {
             moviesList = movie.getResults();
 
             mImageUrlList.clear();
+
             for (ResultsBean bean : movie.getResults()) {
 
-                mImageUrlList.add(BuildImageUrl(bean.getPoster_path()));
+                mImageUrlList.add(bean.getPoster_path());
+
 
             }
 
